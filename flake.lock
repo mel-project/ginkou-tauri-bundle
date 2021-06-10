@@ -1,0 +1,111 @@
+{
+  "nodes": {
+    "flake-utils": {
+      "locked": {
+        "lastModified": 1622445595,
+        "narHash": "sha256-m+JRe6Wc5OZ/mKw2bB3+Tl0ZbtyxxxfnAWln8Q5qs+Y=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "7d706970d94bc5559077eb1a6600afddcd25a7c8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "mozilla": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1622726979,
+        "narHash": "sha256-JCBPZVQ4aGe3cmnQc1tjJRwaxqz1b60piQz+/F9CMtc=",
+        "owner": "mozilla",
+        "repo": "nixpkgs-mozilla",
+        "rev": "3f3fba4e2066f28a1ad7ac60e86a688a92eb5b5f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mozilla",
+        "repo": "nixpkgs-mozilla",
+        "type": "github"
+      }
+    },
+    "naersk": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1622810282,
+        "narHash": "sha256-4wmvM3/xfD0hCdNDIXVzRMfL4yB1J+DjH6Zte2xbAxk=",
+        "owner": "nmattia",
+        "repo": "naersk",
+        "rev": "e8061169e1495871b56be97c5c51d310fae01374",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nmattia",
+        "repo": "naersk",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1623170332,
+        "narHash": "sha256-hap5HsQX23T9qjluL7pvQG4LQxxOmSmJZXiPEko9BB4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "4044744e2e3e07bd46c17c1265bbe9e5ff257f1b",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1623124193,
+        "narHash": "sha256-SIwXuoJC6lwXPz8N5ca6rRlyiCH+D3x8V4J6TL54/qU=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "1a40a7254eaedb560b47096c7b1ae368ad716279",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-20.09",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "mozilla": "mozilla",
+        "naersk": "naersk",
+        "nixpkgs": "nixpkgs_2",
+        "tauriSrc": "tauriSrc"
+      }
+    },
+    "tauriSrc": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1620911895,
+        "narHash": "sha256-KzDMWhn2GgWVZgYl0IxIg/XbPcJNrI8QCWCujKBbHm8=",
+        "owner": "tauri-apps",
+        "repo": "tauri",
+        "rev": "39f8f269164d2fda3d5b614a193b12bb266e4b4b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tauri-apps",
+        "ref": "cli.js-v1.0.0-beta.2",
+        "repo": "tauri",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

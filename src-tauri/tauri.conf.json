@@ -4,8 +4,8 @@
     "version": "0.1.0"
   },
   "build": {
-    "distDir": "ginkou/public",
-    "devPath": "ginkou/public",
+    "distDir": "../ginkou/public",
+    "devPath": "../ginkou/public",
     "beforeDevCommand": "",
     "beforeBuildCommand": ""
   },
