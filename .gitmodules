@@ -1,0 +1,3 @@
+[submodule "ginkou"]
+	path = ginkou
+	url = https://github.com/themeliolabs/ginkou
