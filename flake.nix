@@ -103,6 +103,9 @@
               # melwalletd
               export PATH=$PATH:${melwalletd}/bin
 
+              # Copy in ginkou repo
+              cp -r ${ginkou} ./ginkou
+
               # Place into project with target triplet for bundling
               cp ${melwalletd}/bin/melwalletd ./src-tauri/melwalletd-$(gcc -dumpmachine)
 
