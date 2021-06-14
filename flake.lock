@@ -30,6 +30,22 @@
         "type": "github"
       }
     },
+    "ginkou": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1623373940,
+        "narHash": "sha256-bN28qZ45qerie9Z8xwU8UE5+8lLMBLdON+qOhUmIMQs=",
+        "owner": "themeliolabs",
+        "repo": "ginkou",
+        "rev": "df7307a0a8e15d400fa627cb39e6980b114de0de",
+        "type": "github"
+      },
+      "original": {
+        "owner": "themeliolabs",
+        "repo": "ginkou",
+        "type": "github"
+      }
+    },
     "melwalletd-flake": {
       "inputs": {
         "flake-utils": "flake-utils_2",
@@ -118,6 +134,7 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
+        "ginkou": "ginkou",
         "melwalletd-flake": "melwalletd-flake",
         "mozilla": "mozilla_2",
         "nixpkgs": "nixpkgs_2",

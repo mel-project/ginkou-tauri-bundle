@@ -22,7 +22,7 @@
         "icons/icon.ico"
       ],
       "resources": [],
-      "externalBin": [],
+      "externalBin": ["melwalletd"],
       "copyright": "",
       "category": "DeveloperTool",
       "shortDescription": "",

@@ -3,10 +3,10 @@
 
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-20.09";
   inputs.flake-utils.url = "github:numtide/flake-utils";
-  #inputs.naersk.url = "github:nmattia/naersk";
   inputs.melwalletd-flake.url = "github:themeliolabs/melwalletd";
   inputs.mozilla = { url = "github:mozilla/nixpkgs-mozilla"; flake = false; };
   inputs.tauriSrc = { url = "github:tauri-apps/tauri/cli.js-v1.0.0-beta.2"; flake = false; };
+  inputs.ginkou = { url = "github:themeliolabs/ginkou"; flake = false; };
 
   outputs =
     { self
@@ -15,6 +15,7 @@
     , flake-utils
     , tauriSrc
     , melwalletd-flake
+    , ginkou
     , ...
     } @inputs:
     let rustOverlay = final: prev:
@@ -49,7 +50,6 @@
               rustc = rustChannel.rust;
             };
 
-        #naersk-lib = naersk.lib."${system}";
         tauri = rustPlatform.buildRustPackage rec {
           pname = "tauri-v${version}";
           version = "1.0.0-beta.2";
@@ -60,9 +60,8 @@
 
         melwalletd = melwalletd-flake.packages."${system}".melwalletd;
 
-        bundleDrv = pkgs.callPackage ./bundle.nix {};
-
         tauri-deps = with pkgs; [
+              (rustChannel.rust.override { extensions = [ "rust-src" ]; })
               binutils
               zlib
               wget
@@ -78,31 +77,23 @@
               libayatana-appindicator-gtk3
         ];
 
+        /*
+        bundleDrv = pkgs.callPackage ./bundle.nix {
+          inherit tauri melwalletd ginkou tauri-deps;
+          src = self;
+        };
+        */
+
         in rec {
-          /*
-          packages.tauri = naersk-lib.buildPackage rec {
-            name = "tauri-v${version}";
-            version = "1.0.0-beta.2";
-
-            src = "${tauriSrc}";
-            root = "${tauriSrc}/tooling/cli.rs";
-
-            buildInputs = with pkgs; [
-              nodePackages.npm
-            ] ++ tauri-deps;
-          };
-          */
-          melwalletd = melwalletd-flake.packages."${system}".melwalletd;
-
           packages.tauri = tauri;
 
-          # TODO this should not be
-          defaultPackage = packages.tauri;
+          # Produces ginkou binary and melwalletd linked binary
+          #defaultPackage = bundleDrv;
 
           devShell = pkgs.mkShell {
             buildInputs = with pkgs; [
               #packages.tauri
-              (rustChannel.rust.override { extensions = [ "rust-src" ]; })
+              #(rustChannel.rust.override { extensions = [ "rust-src" ]; })
             ] ++ tauri-deps;
 
             shellHook = ''
@@ -116,7 +107,7 @@
 
               # Tauri cli
               export PATH=$PATH:${packages.tauri}/bin
-              alias tauri='cargo-tauri'
+              alias tauri='cargo-tauri tauri'
             '';
           };
         });

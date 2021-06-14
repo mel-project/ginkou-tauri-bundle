@@ -1,11 +1,10 @@
 [package]
-name = "app"
+name = "ginkou"
 version = "0.1.0"
-description = "A Tauri App"
-authors = ["you"]
+description = "Wallet application for Themelio blockchain"
+authors = ["themelio labs"]
 license = ""
 repository = ""
-default-run = "app"
 edition = "2018"
 build = "src/build.rs"
 

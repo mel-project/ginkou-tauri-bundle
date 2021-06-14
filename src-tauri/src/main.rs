@@ -7,7 +7,6 @@ use tauri::api::process::Command;
 
 use std::{
     path::Path,
-    //process::{Command, Stdio},
 };
 
 //fn start_walletd(wallet_dir: &Path) -> Result<(Receiver<CommandEvent>, CommandChild)> {
@@ -25,24 +24,6 @@ fn start_walletd(wallet_dir: &Path) {
         .args(&["--wallet-dir", wallet_path_str])
         .spawn()
         .expect("melwalletd failed to start");
-
-    /*
-    let triplet_name = command::binary_command("melwalletd")
-        .expect("Failed to get architecture triplet name for melwalletd");
-
-    command::spawn_relative_command(
-        triplet_name,
-        vec![
-             "--listen", "127.0.0.1:11773",
-             "--mainnet-connect", "51.83.255.223:11814",
-             "--testnet-connect", "94.237.109.44:11814",
-             "--wallet-dir", wallet_path_str
-        ],
-        Stdio::piped(),
-        )
-        .spawn()
-        .expect("melwalletd failed to start");
-    */
 }
 
 fn main() {
