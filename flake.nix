@@ -102,8 +102,9 @@
 
               # melwalletd
               export PATH=$PATH:${melwalletd}/bin
-              # Place into project for bundling
-              cp ${melwalletd}/bin/melwalletd ${self}/src-tauri/
+
+              # Place into project with target triplet for bundling
+              cp ${melwalletd}/bin/melwalletd ./src-tauri/melwalletd-$(gcc -dumpmachine)
 
               # Tauri cli
               export PATH=$PATH:${packages.tauri}/bin
