@@ -14,10 +14,21 @@ this repo, run this to open a shell:
 nix develop
 ```
 
+*This step will be removed once ginkou has its own nix flake*
+Build the wallet UI
+```bash
+cd ginkou
+npm run build
+```
+
 Then bundle the project
 ```bash
+# At the root of this repository
 tauri build
 ```
+
+If you happen to get an `Permission denied (os error 13)` when building, try
+running `cargo clean`.
 
 ## What is the nix shell configuring?
 This project expects the entire ginkou project as a directory in the top level

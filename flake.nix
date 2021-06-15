@@ -105,6 +105,9 @@
 
               # Copy in ginkou repo
               cp -r ${ginkou} ./ginkou
+              # Make writable for building
+              chmod +w ginkou
+              chmod +w ginkou/public
 
               # Place into project with target triplet for bundling
               cp ${melwalletd}/bin/melwalletd ./src-tauri/melwalletd-$(gcc -dumpmachine)
