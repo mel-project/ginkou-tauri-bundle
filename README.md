@@ -18,6 +18,7 @@ nix develop
 Build the wallet UI
 ```bash
 cd ginkou
+npm install
 npm run build
 ```
 
@@ -25,7 +26,10 @@ Then bundle the project
 ```bash
 # At the root of this repository
 tauri build
+sh build_tar.tar.gz
 ```
+
+There will be a ginkou.tar.gz file in src-tauri/target/release.
 
 If you happen to get an `Permission denied (os error 13)` when building, try
 running `cargo clean`.
